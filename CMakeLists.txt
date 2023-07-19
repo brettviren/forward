@@ -1,6 +1,6 @@
 # this minimum version hasn't been
 # tested extensively
-cmake_minimum_required(VERSION 2.8.10)
+cmake_minimum_required(VERSION 3.2)
 
 # setup our project
 project(ForWaRD
@@ -16,6 +16,7 @@ add_library(ForWaRD INTERFACE)  # header only
 target_include_directories(ForWaRD INTERFACE "include/")
 
 #################### START FIND PACKAGES ####################
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 find_package(FFTW3 REQUIRED)
 #target_include_directories(ForWaRD PUBLIC ${FFTW_INCLUDES})
 

@@ -179,3 +179,9 @@ cython_debug/
 # static files generated from Django application using `collectstatic`
 media
 static
+
+*~
+CMakeCache.txt
+Makefile
+CMakeFiles
+cmake_install.cmake

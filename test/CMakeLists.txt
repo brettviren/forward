@@ -10,8 +10,10 @@ target_include_directories(test_forward PUBLIC "${CMAKE_HOME_DIRECTORY}/include"
 
 #################### WE NEED FFTW3 ####################
 find_package(FFTW3 REQUIRED)
-target_include_directories(test_forward PUBLIC ${FFTW3_INCLUDES})
-target_link_libraries(test_forward PUBLIC ${FFTW3_LIBRARIES})
+target_include_directories(test_forward PUBLIC PkgConfig::FFTW)
+target_link_libraries(test_forward PUBLIC PkgConfig::FFTW)
+# target_include_directories(test_forward PUBLIC ${FFTW3_INCLUDES})
+# target_link_libraries(test_forward PUBLIC ${FFTW3_LIBRARIES})
 
 
 #################### START COMPILE FLAGS ####################

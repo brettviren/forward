@@ -1,8 +1,10 @@
 # we want to support C++11 with PyBind11
-set(PYBIND11_CPP_STANDARD -std=c++17)
+# set(PYBIND11_CPP_STANDARD -std=c++17)
 
 # find and load PyBind11
 find_package(pybind11)
+
+find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 
 # check that we found PyBind11
 IF(NOT pybind11_FOUND)
@@ -57,6 +59,9 @@ target_compile_options(forward PRIVATE ${COMPILE_OPTIONS})
 
 # add our install target
 install(TARGETS forward
-  CONFIGURATIONS Release
-  LIBRARY
-  DESTINATION "forward")
+  COMPONENT python
+  LIBRARY DESTINATION "lib/python${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}/site-packages"
+  ARCHIVE DESTINATION "lib"
+  RUNTIME DESTINATION "bin")
+  # CONFIGURATIONS Release
+  # LIBRARY DESTINATION "forward")
